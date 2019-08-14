@@ -109,7 +109,6 @@ alias em='emacs -nw'
 alias dd='dd status=progress'
 alias _='sudo'
 alias _i='sudo -i'
-alias clear='echo NO!'
 alias please='sudo'
 
 # Alias definitions.
