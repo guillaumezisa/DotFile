@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Nice
+Type=X-GNOME-Metatheme
+Comment=
+
+[X-GNOME-Metatheme]
+GtkTheme=Adwaita-dark
+MetacityTheme=BlueMenta
+IconTheme=Marwaita
+GtkColorScheme=tooltip_fg_color:#ffffff,tooltip_bg_color:#343434
+CursorTheme=La Capitaine
+CursorSize=24

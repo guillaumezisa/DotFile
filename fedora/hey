@@ -1,0 +1,29 @@
+#!/bin/bash
+
+hostname=$(hostname)
+username=$(whoami)
+cardname=$(ip route | grep default | awk '{print $5}' )
+ssid=$(iw dev | grep ssid | awk '{print $2}' )
+private_ip=$(ip a | grep wlan0 |grep inet| awk '{print $2}' )
+public_ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+country=$(curl -s ipinfo.io | grep country | awk '{print $2}' | cut -d\" -f2)
+city=$(curl -s ipinfo.io | grep city | awk '{print $2}' | cut -d\" -f2)
+postal=$(curl -s ipinfo.io | grep postal | awk '{print $2}' | cut -d\" -f2)
+hour=$(date +%H:%M)
+day=$(date +%Y/%m/%d)
+
+echo "###################################################################";
+echo "                                                                 "
+echo "        Welcome on "$hostname" !                                 "
+echo "        You are actually loged on "$ssid" with "$cardname".      "
+echo "        Your public ip is "$public_ip".                          "
+echo "        Your private ip is "$private_ip".                        "
+echo "        You are located in "$country","$city","$postal".         "
+echo "        Today we are the "$day" and it's "$hour".                "
+echo "                                                                 "
+if [ -f ~/.hey.log ];then
+  echo "$day":"$hour":"$country":"$city":"$postal":"$public_ip":"$ssid" >> ~/.hey.log;
+else
+  echo "$day":"$hour":"$country":"$city":"$postal":"$public_ip":"$ssid" > ~/.hey.log;
+fi
+
