@@ -9,6 +9,8 @@
 
 
 if [ $(whoami) = "root" ];then
+	apt install sudo -y
+	usermod -G sudo guillaume
 	apt install vim -y
 	apt install git -y 
 	apt install snap -y 
@@ -17,6 +19,7 @@ if [ $(whoami) = "root" ];then
 	apt install open-vm-tools -y
 	apt install open-vm-tools-desktop -y
 	apt install git -y
+	apt install resolvconf -y
 	snap install opera
 	snap install atom --classic
 	snap install atom --classic
