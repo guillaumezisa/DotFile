@@ -48,5 +48,5 @@ if [ $(whoami) = "root" ];then
   fi
 
 else
-  echo "Tu dois être root pour lancer l'installation"
+  echo "Please, be root for the automatic install"
 fi
