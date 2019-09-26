@@ -9,36 +9,36 @@
 
 if [ $(whoami) = "root" ];then
   echo"===============================MISE A JOUR================================="
-  sudo dnf update -y
+  dnf update -y
 
   echo"==============================INSTALLATION MATE============================"
-  sudo dnf groupinstall mate-desktop --allowerasing -y
-  sudo dnf groupinstall mate-applications --allowerasing -y
-  sudo dnf install lightdm lightdm-gtk -y
-  sudo systemctl disable gdm.service
-  sudo systemctl enable lightdm.service
+  dnf groupinstall mate-desktop --allowerasing -y
+  dnf groupinstall mate-applications --allowerasing -y
+  dnf install lightdm lightdm-gtk -y
+  systemctl disable gdm.service
+  systemctl enable lightdm.service
 
   echo"======================INSTALLATION KERNEL HEADER VMWARE===================="
-  sudo dnf install kernel-headers kernel-devel gcc glibc-headers
+  dnf install kernel-headers kernel-devel gcc glibc-headers
 
   echo "======================INSTALLATION DES THEMES ET SOFT====================="
-  sudo dnf copr enable tcg/themes -y && sudo dnf install la-capitaine-cursor-theme -y
-  sudo dnf install snap -y
-  sudo dnf install snapd -y
-  sudo snap install discord
-  sudo snap install opera
-  sudo snap install onlyoffice-desktopeditors
-  sudo snap install john-the-ripper
-  sudo cp -r icons ~/.icons
-  sudo cp -r themes ~/.themes
-  sudo cp bashrc ~/.bashrc
-  sudo cp hey /bin/hey
-  sudo chmod 775 /bin/hey
+  dnf copr enable tcg/themes -y && sudo dnf install la-capitaine-cursor-theme -y
+  dnf install snap -y
+  dnf install snapd -y
+  snap install discord
+  snap install opera
+  snap install onlyoffice-desktopeditors
+  snap install john-the-ripper
+  cp -r icons ~/.icons
+  cp -r themes ~/.themes
+  cp bashrc ~/.bashrc
+  cp hey /bin/hey
+  chmod 775 /bin/hey
 
   echo "===========================INSTALLATION JOHN THE RIPPER==================="
-  sudo dnf install git gcc openssl-devel -y
-  sudo dnf install yasm gmp-devel libpcap-devel bzip2-devel -y
-  sudo dnf install john
+  dnf install git gcc openssl-devel -y
+  dnf install yasm gmp-devel libpcap-devel bzip2-devel -y
+  dnf install john
 
   echo "=========================================================================="
   echo "Installation terminer redémarrer la machine ? [y/n]"
@@ -46,7 +46,7 @@ if [ $(whoami) = "root" ];then
   if [ $choice = "y" ];then
     reboot
   fi
-  #sudo reboot
+
 else
-  echo "Tu dois être root pour lancer l'installation"
+  echo "Please, be root for the automatic install"
 fi
