@@ -9,23 +9,17 @@
 
 
 if [ $(whoami) = "root" ];then
+        # Install software
 	apt install sudo -y
 	usermod -G sudo guillaume
-	apt install vim -y
-	apt install git -y 
-	apt install snap -y 
-	apt install snapd -y 
-	apt install vmware-utils -y 
-	apt install open-vm-tools -y
-	apt install open-vm-tools-desktop -y
-	apt install git -y
-	apt install resolvconf -y
+	apt install -y vim git snap snapd vmware-utils open-vm-tools open-vm-tools-desktop resolvconf
 	snap install opera
 	snap install atom --classic
-	snap install atom --classic
-	git clone http://github.com/guillaumezisa/Dotfile /home/guillaume/Documents/
-	cp bashrc /home/guillaume/.bashrc
-	cp bashrc /root/.bashrc
+	
+	# Clone our dotfile and set our .bashrc and .alias
+	git clone http://github.com/guillaumezisa/Dotfile /home/guillaume/.dotfiles/
+	cp $HOME/.dotfiles/bashrc $HOME/.bashrc
+	cp $HOME/.dotfiles/bash_aliases $HOME/.bash_aliases
 else
-  echo "Tu dois être root pour lancer l'installation"
+  echo "Please be root for the automatic install"
 fi
